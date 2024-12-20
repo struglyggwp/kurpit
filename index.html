@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал оценок</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Журнал оценок</h1>
+        <nav>
+            <button data-tab="upload">Загрузка оценок</button>
+            <button data-tab="edit">Создание/Редактирование</button>
+            <button data-tab="table-stats">Статистика (таблица)</button>
+            <button data-tab="graph-stats">Статистика (графики)</button>
+            <button data-tab="help">Помощь</button>
+            <button data-tab="about">О программе</button>
+        </nav>
+    </header>
+
+    <main>
+ 
+        <section id="upload" class="tab active">
+            <h2>Загрузка оценок</h2>
+            <label for="file-input">Выберите файл:</label>
+            <input type="file" id="file-input" accept=".csv">
+            <button id="load-file">Загрузить файл</button>
+            <h3>Предварительный просмотр:</h3>
+            <table id="file-preview">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Класс</th>
+                        <th>Информатика</th>
+                        <th>Физика</th>
+                        <th>Математика</th>
+                        <th>Литература</th>
+                        <th>Музыка</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="edit" class="tab">
+            <h2>Таблица учеников:</h2>
+            <table id="edit-table">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Класс</th>
+                        <th>Информатика</th>
+                        <th>Физика</th>
+                        <th>Математика</th>
+                        <th>Литература</th>
+                        <th>Музыка</th>
+                        <th>Удалить</th>
+                    </tr>
+                </thead>
+                <tbody>
+         
+                    <tr>
+                        <td contenteditable="true">Иванов Иван</td>
+                        <td contenteditable="true">10A</td>
+                        <td contenteditable="true">4</td>
+                        <td contenteditable="true">5</td>
+                        <td contenteditable="true">3</td>
+                        <td contenteditable="true">4</td>
+                        <td contenteditable="true">5</td>
+                        <td><button class="delete-btn">Удалить</button></td>
+                    </tr>
+             
+                </tbody>
+            </table>
+
+            <h3>Добавить нового ученика:</h3>
+            <form id="add-student-form">
+                <input type="text" id="student-name" placeholder="ФИО ученика" required>
+                <input type="text" id="student-class" placeholder="Класс" required>
+                <input type="number" id="informatics" placeholder="Информатика" min="1" max="5" required>
+                <input type="number" id="physics" placeholder="Физика" min="1" max="5" required>
+                <input type="number" id="mathematics" placeholder="Математика" min="1" max="5" required>
+                <input type="number" id="literature" placeholder="Литература" min="1" max="5" required>
+                <input type="number" id="music" placeholder="Музыка" min="1" max="5" required>
+                <button type="submit">Добавить ученика</button>
+            </form>
+        </section>
+
+   
+        <section id="table-stats" class="tab">
+            <h2>Статистика (таблица)</h2>
+            <div id="class-stats"></div>
+            <h3>Общая статистика по всем ученикам</h3>
+            <table id="all-students-stats">
+   
+            </table>
+        </section>
+
+        <section id="graph-stats" class="tab">
+            <h2>Статистика (графики)</h2>
+            <div id="graphs-container">
+                <canvas id="subject-stats-chart"></canvas> 
+            </div>
+        </section>
+
+        <section id="help" class="tab">
+            <h2>Помощь</h2>
+            <h3>Инструкция по использованию</h3>
+            <p><strong>1. Загрузка оценок:</strong> Для начала работы загрузите файл с оценками учеников. В нем должны быть следующие столбцы: имя ученика, класс и оценки по предметам (Информатика, Физика, Математика, Литература, Музыка).</p>
+            <p><strong>2. Создание/Редактирование таблицы:</strong> Вкладка "Создание/Редактирование" позволяет редактировать данные учеников. Вы можете изменять оценки прямо в таблице и добавлять новых учеников.</p>
+            <p><strong>3. Статистика (таблица):</strong> Вкладка "Статистика (таблица)" отображает статистику по оценкам учеников по каждому классу. В таблице отображаются средние значения и медианы по каждому предмету.</p>
+            <p><strong>4. Статистика (графики):</strong> Вкладка "Статистика (графики)" строит графики, показывающие распределение оценок по предметам для всех классов. Графики обновляются автоматически при изменении данных.</p>
+            <p><strong>5. Добавление нового ученика:</strong> Для добавления нового ученика заполните форму, указав ФИО, класс и оценки по каждому предмету.</p>
+            <p><strong>6. Удаление ученика:</strong> Для удаления ученика нажмите на кнопку "Удалить" рядом с его данными в таблице.</p>
+            <h3>Типы графиков</h3>
+            <p>Графики показывают распределение оценок (1-5) по каждому предмету в процентах. Это позволяет наглядно увидеть, как оцениваются ученики по каждому предмету в различных классах.</p>
+        </section>
+
+        <section id="about" class="tab">
+            <h2>О программе</h2>
+            <p>Эта программа предназначена для учителей и администраторов учебных заведений, которые хотят автоматизировать процесс ведения журнала оценок. Программа позволяет загружать данные, редактировать оценки, просматривать статистику по классам и предметам, а также строить графики.</p>
+            <h3>Создатель сайта</h3>
+            <p><strong>Чеглаков Вячеслав Алексеевич</strong></p>
+            <p>Email: <a href="mailto:cheglakov198@gmail.com">cheglakov198@gmail.com</a></p>
+            <h3>Фотография </h3>
+            <img src="photo.jpg" alt="Чеглаков Вячеслав Алексеевич" width="200" height="200">
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

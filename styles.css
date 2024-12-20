@@ -1,0 +1,228 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+    header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+    nav button {
+        background: none;
+        border: 2px solid #fff;
+        color: white;
+        font-size: 1.1rem;
+        padding: 0.75rem 1.25rem;
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+    }
+
+        nav button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            border-color: #f4c542;
+        }
+
+main {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tab {
+    display: none;
+}
+
+    .tab.active {
+        display: block;
+    }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+    table th, table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table th {
+        background: #6a11cb;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table tr:hover {
+        background-color: #f4f4f4;
+    }
+
+label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: #444;
+}
+
+button {
+    background-color: #6a11cb;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+    button:hover {
+        background-color: #2575fc;
+        transform: translateY(-4px);
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+
+input {
+    padding: 0.8rem;
+    margin: 1rem 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+    input:focus {
+        border-color: #6a11cb;
+        box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+        outline: none;
+    }
+
+form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+button.edit-btn, button.delete-btn {
+    background-color: #f39c12;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    button.edit-btn:hover, button.delete-btn:hover {
+        background-color: #e67e22;
+        transform: translateY(-3px);
+    }
+
+button.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+    button.delete-btn:hover {
+        background-color: #c0392b;
+    }
+
+form#edit-student-form, form#add-student-form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+#download-file {
+    background-color: #3498db;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    #download-file:hover {
+        background-color: #2980b9;
+        transform: translateY(-4px);
+    }
+
+.stats-table {
+    margin-top: 2rem;
+}
+
+    .stats-table th, .stats-table td {
+        padding: 1rem;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .stats-table th {
+        background-color: #6a11cb;
+        color: white;
+        font-weight: bold;
+    }
+
+    .stats-table td {
+        color: #555;
+    }
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    table {
+        margin-top: 1rem;
+    }
+
+    form input, form button {
+        width: 100%;
+    }
+}
